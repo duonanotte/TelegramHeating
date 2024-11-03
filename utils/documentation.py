@@ -2,10 +2,17 @@ documentation_ru = """
 
 Проект Heating представляет собой автоматизированный инструмент для Telegram, разработанный для симуляции активности пользователя в различных каналах и чатах. Основная цель проекта - создать естественную модель поведения пользователя, включая присоединение к каналам, взаимодействие с контентом и управление профилем.
 
+> **Обязательно прочтите перед использованием!**
+> Ваши аккаунты могу быть заблокированы, для того чтобы снизить шансы, покупайте только зарегистрированные вручную аккаунты.
+> ВАЖНО использовать прокси той страны в которой аккаунт был зарегистрирован.
+> На один аккаунт используем один прокси.
+> Софт лишь помогает выполнять те действия, которые вы выполняли бы вручную.
+> Используйте на свой страх и риск!
+
 **Основные возможности:**
 
 1. **Автоматическое присоединение к каналам**:
-   - Скрипт может присоединяться к заданному списку каналов. Ссылки на аналы добавляете в файл channels.py
+   - Скрипт может присоединяться к заданному списку каналов. Ссылки на каналы добавляете в файл channels.py
    - После присоединения автоматически отключаются уведомления для каждого канала.
 
 2. **Симуляция активности пользователя**:
@@ -121,6 +128,13 @@ documentation_ru = """
 documentation_en = """
 
 The Heating project is an automated tool for Telegram designed to simulate user activity in various channels and chats. The main goal of the project is to create a natural model of user behavior, including joining channels, interacting with content, and managing the profile.
+
+> **Be sure to read before use!**
+> Your accounts may be blocked; to reduce the risk, purchase only manually registered accounts.
+> It is IMPORTANT to use a proxy from the country where the account is registered.
+> Use one proxy per account.
+> The software only assists in performing actions you would otherwise do manually.
+> Use at your own risk!
 
 **Key Features:**
 
