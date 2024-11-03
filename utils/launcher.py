@@ -42,7 +42,8 @@ def display_menu(choices, session_count, proxy_count):
     proxy_info = (
         f"🛡️  Detected [cyan]{session_count}[/cyan] sessions and [cyan]{proxy_count}[/cyan] proxies"
         if settings.USE_PROXY else
-        f"🛡️  Detected [cyan]{session_count}[/cyan] sessions (running without proxies)"
+        f"🛡️  Detected [cyan]{session_count}[/cyan] sessions (running without proxies)\n"
+        f"[magenta]Be sure to read the documentation before use![/magenta]"
     )
 
     panel_content = (
