@@ -49,6 +49,7 @@ If you have any questions or need assistance, feel free to join our **community 
 | **SET_BIO**                 | <small>`True` or `False`</small>                                                    |
 | **SET_EMOJI**               | <small>`True` or `False`</small>                                                    |
 | **EMOJI_TO_SET**            | <small>example `"🌟"`</small>                                                       |
+| **DELETE_ALL_EMOJI**        | <small>`True` or `False`</small>                                                    |
 | **AVATAR_DELAY_RANGE**      | <small>Delay range in hours before setting the avatar, example `[48, 96]`</small>   |
 | **BIO_DELAY_RANGE**         | <small>Delay range in hours before setting the bio `[48, 96]`</small>               |
 | **PARSE_ALL_CHATS**         | <small>Enables the mode to parse all available chats for a specific session `True` or `False`</small> |
