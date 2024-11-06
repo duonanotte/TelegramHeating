@@ -389,6 +389,47 @@ class TelegramJoiner:
         except Exception as e:
             logger.error(f"{self.session_name} | Error checking/updating profile: {e}")
 
+    async def delete_all_emoji(self):
+        try:
+            me = await self.tg_client.get_me()
+            first_name = me.first_name or ""
+            last_name = me.last_name or ""
+
+            emoji_pattern = re.compile("["
+                                       u"\U0001F600-\U0001F64F"
+                                       u"\U0001F300-\U0001F5FF"
+                                       u"\U0001F680-\U0001F6FF"
+                                       u"\U0001F1E0-\U0001F1FF"
+                                       u"\U00002702-\U000027B0"
+                                       u"\U000024C2-\U0001F251"
+                                       "]+", flags=re.UNICODE)
+
+            clean_first_name = emoji_pattern.sub(r'', first_name).strip()
+            clean_last_name = emoji_pattern.sub(r'', last_name).strip()
+
+            if clean_first_name != first_name or clean_last_name != last_name:
+                try:
+                    await self.tg_client.update_profile(
+                        first_name=clean_first_name if clean_first_name else "User",
+                        last_name=clean_last_name
+                    )
+                    logger.info(
+                        f"{self.session_name} | Successfully removed emoji from profile | "
+                        f"New name: <ly>{clean_first_name} {clean_last_name}</ly>"
+                    )
+                except FloodWait as e:
+                    logger.warning(
+                        f"{self.session_name} | FloodWait on profile update. "
+                        f"Sleep {e.value} seconds"
+                    )
+                    await asyncio.sleep(e.value)
+            else:
+                logger.info(f"{self.session_name} | No emoji found in profile")
+
+        except Exception as e:
+            logger.error(f"{self.session_name} | Error when deleting an emoji: {e}")
+            logger.error(f"Traceback: ", exc_info=True)
+
     async def run(self):
         if settings.USE_RANDOM_DELAY_IN_RUN:
             random_delay = random.randint(settings.RANDOM_DELAY_IN_RUN[0], settings.RANDOM_DELAY_IN_RUN[1])
@@ -410,6 +451,12 @@ class TelegramJoiner:
                 retry_time = timedelta(seconds=retry_delay)
                 logger.error(f"{self.session_name} | {str(e)}. Retrying in <light-red>{retry_time}</light-red>")
                 await asyncio.sleep(retry_delay)
+
+        if settings.DELETE_ALL_EMOJI:
+            await self.delete_all_emoji()
+            logger.info(f"{self.session_name} | Shutdown after deleting an emoji")
+            await self.stop()
+            return
 
         start_time = datetime.now()
 
