@@ -93,6 +93,10 @@ documentation_ru = """
   - Описание: добавляет модзи для добавления к имени.
   - Значение по умолчанию: Здесь вставляете нужный вам эмодзи, пример `"🌟"`
 
+- `DELETE_ALL_EMOJI`: 
+  - Описание: удаляет все эмодзи из имени и фамилии.
+  - Доступные значения: `True` или `False`
+
 - `AVATAR_DELAY_RANGE`: 
   - Описание: Диапазон задержки в часах перед установкой аватара `[мин, макс]`.
   - Значение по умолчанию: пример, `[48, 96]`. В данному случае для каждой сессии будет выбрана случайная задержка перед установкой аватара между 48 и 96 часами.
@@ -219,6 +223,10 @@ Project configuration is done in `config.py`. Let’s review the key parameters:
 - `EMOJI_TO_SET`: 
   - Description: Specifies the emoji to be added to the username.
   - Default value: Insert the desired emoji here, for example, `"🌟"`
+
+- `DELETE_ALL_EMOJI`: 
+  - Description: removes all emoji from first and last name.
+  - Available values: `True` or `False`.  
 
 - `AVATAR_DELAY_RANGE`: 
   - Description: Delay range in hours before setting the avatar `[min, max]`.
