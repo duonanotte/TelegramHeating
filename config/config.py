@@ -17,6 +17,7 @@ class Settings(BaseSettings):
 
     SET_EMOJI: bool = False
     EMOJI_TO_SET: Optional[str] = "🌟"
+    DELETE_ALL_EMOJI: bool = True
 
     AVATAR_DELAY_RANGE: list[float] = [48, 96]  # 48-96 hours
     BIO_DELAY_RANGE: list[float] = [48, 96]  # 48-96 hours
